@@ -1,4 +1,3 @@
-import re
 from flask import Flask,request,render_template,jsonify
 from database import load_jobs_from_db,load_job_from_db
 
@@ -32,7 +31,7 @@ def show_job(id):
     job = load_job_from_db(id)
     
     if not job:
-        return "NOT FOUND", 404
+        return "NOT FO"
     return render_template('jobpage.html', jobs = job)
 
 if __name__ == "__main__":
