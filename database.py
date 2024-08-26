@@ -1,9 +1,10 @@
 from sqlalchemy import create_engine, text
 import pymysql
+import os 
 pymysql.install_as_MySQLdb()
 
 # Update the connection string by removing the ssl-mode=REQUIRED from it
-db_connection_string = "mysql://avnadmin:AVNS_umE4KpdtvLRwxJ9oeZ3@jobinscareer-jobinscareer.h.aivencloud.com:12523/defaultdb"
+db_connection_string = os.environ['DB_CONNECTION_STRING']
 
 # Create the SQLAlchemy engine with SSL arguments
 engine = create_engine(
