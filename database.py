@@ -54,6 +54,32 @@ def load_job_from_db(id):
                 return rows[0]._asdict()  # Convert the first row to a dictionary
 
 
+
+def add_application_to_db(job_ids, data):
+    with engine.connect() as conn:
+        query = text("""
+            INSERT INTO applications (job_id, full_name, email, linkedin_url, education, work_experience, resume_url)
+            VALUES (:job_id, :full_name, :email, :linkedin_url, :education, :work_experience, :resume_url)
+        """)
+
+        # Prepare data for batch insertion
+        insert_data = [
+            {
+                'job_id': job_id,
+                'full_name': data['full_name'],
+                'email': data['email'],
+                'linkedin_url': data['linkedin_url'],
+                'education': data['education'],
+                'work_experience': data['work_experience'],
+                'resume_url': data['resume_url']
+            }
+            for job_id in job_ids
+        ]
+
+        conn.execute(query, insert_data)
+        conn.close()
+
+
 # Connect to the database and execute the query
 # with engine.connect() as conn:
 #     # Execute the query

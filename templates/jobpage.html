@@ -1,48 +1,36 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>{{jobs.title}} - JOBIN's Career</title>
-  <link rel="stylesheet" href="/static/style.css">
-  
-    {% include 'bootstrap.html'%}
-    
-   
-</head>
-<body>
-  
-  {% include("navbar.html")%}
-   {% include ('banner.html')%}
-  <div class='container'>
-    <h1 class="text-center mt-2 mb-4">JOBIN's Career</h1>
-   
-    <h3 class='mb-2'>{{jobs.title}}</h3>
-    <p class='lead mt-0'>{{jobs.location}}</p>
-    
-    <h4>Responsibilities</h4>
-   
-    <ul>
-        {% for line in jobs.responsibites.split("\n") %}
-            <li>{{ line }}</li>
+  <head>
+    <title>{{job.title}} - JOBIN's Career</title>
+    <link rel="icon" href="/static/logo.svg" type="image/icon type">
+    {% include 'bootstrap.html' %}
+     <link rel="stylesheet" href="/static/style.css">
+  </head>
+  <body>
+    {% include 'navbar.html' %}
+    {% include 'banner.html' %}
+    <div class="container">
+      <h1 class="text-center mt-2 mb-4 satisfy-regular">
+        JOBIN's Career
+      </h1>
+      <h3 class="mb-2">{{job.title}}</h3>
+      <p class="lead mt-0">{{job.location}}</p>
+      <h4>Responsibilities</h4>
+      <ul>
+        {% for line in job.responsibites.split("\n") %}
+         <li>{{line}}</li>
         {% endfor %}
-    </ul>
-
-    <!-- <p>{{jobs.responsibites}}</p> -->
-    
-    <h4>Requirements</h4>
+      </ul>
+      <h4>Requirements</h4>
       <ol>
-           {% for line in jobs.requirements.split("\n") %}
-            <li>{{ line }}</li>
+        {% for line in job.requirements.split("\n") %}
+          <li>{{line}}</li>
         {% endfor %}
       </ol>
-
-
-    <h4>Salary</h4>
-    <p>{{jobs.currency}}{{jobs.salary}}</p>
-
-  </div>
-  
-
-  {% include('footer.html') %}
-
-</body>
+      <h4>Salary</h4>
+      <p>{{job.currency}}{{job.salary}}</p>
+      {% include 'application_form.html' %}
+    </div>
+    {% include 'footer.html' %}
+  </body>
 </html>
