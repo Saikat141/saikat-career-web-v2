@@ -1,6 +1,6 @@
 from flask import Flask,request,render_template,jsonify
 from database import load_jobs_from_db,load_job_from_db,add_application_to_db
-
+from datetime import date
 
 app = Flask(__name__)
 
@@ -8,8 +8,12 @@ app = Flask(__name__)
 @app.route("/")
 
 def index():
+    #for footer year
+    current_date = date.today()
+    year= current_date.year
+
     JOBS = load_jobs_from_db()
-    return render_template('home.html', jobs = JOBS)
+    return render_template('home.html', jobs = JOBS, year = year)
 
 @app.route("/api/jobs")
 def list_jobs():
