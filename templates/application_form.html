@@ -1,35 +1,41 @@
-<h4>Application Form</h4>
+<div style="text-align: center;"><h4>Application Form</h4></div>
 
-<form action="/job/{{job['id']}}/apply" method="post">
+<div class="frm container">
+
+    <form action="/job/{{job['id']}}/apply" method="post">
   <div class="mb-2">
-  <label>Full Name</label><br>
-  <input type="text" required name="full_name" placeholder="Bruce Wayne">
+  <label class="mb-2">Full Name</label><br>
+  <input class="form-control" type="text" required name="full_name" placeholder="Bruce Wayne">
   </div>
 
   <div class="mb-2">
-  <label>Email</label><br>
-  <input type="email" required name="email" placeholder="bruce@wayne.com">
+  <label class="mb-2">Email</label><br>
+  <input class="form-control" type="email" required name="email" placeholder="bruce@wayne.com">
   </div>
 
   <div class="mb-2">
-  <label>LinkedIn URL</label><br>
-  <input type="text" name="linkedin_url" placeholder="https://linked.com/in/brucewayne">
+  <label class="mb-2">LinkedIn URL</label><br>
+  <input class="form-control" type="text" name="linkedin_url" placeholder="https://linked.com/in/brucewayne">
   </div>
 
   <div class="mb-2">
-    <label>Education</label><br>
-    <textarea name="education"></textarea>
+    <label class="mb-2">Education</label><br>
+    <textarea class="form-control" name="education"></textarea>
   </div>
 
   <div class="mb-2">
-    <label>Work Experience</label><br>
-    <textarea name="work_experience"></textarea>
+    <label class="mb-2">Work Experience</label><br>
+    <textarea class="form-control" name="work_experience"></textarea>
   </div>
 
   <div class="mb-2">
-  <label>Resume URL</label><br>
-  <input type="text" name="resume_url">
+  <label label class="mb-2">Resume URL</label><br>
+  <input class="form-control" type="text" name="resume_url">
   </div>
 
-  <input type="submit">
+     <div  class = "mt-5" style="text-align: center;" ><input class="btn btn-primary btn-lg" type="submit"></div>
+
+
+
 </form>
+  </div>
